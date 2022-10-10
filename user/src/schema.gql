@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""everything related to user"""
+type User {
+  id: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  lastLogin: String!
+}
+
+type DeleteUser {
+  id: String!
+}
+
+type Query {
+  user(id: String!): User!
+  users: [User!]!
+}
+
+type Mutation {
+  removeUser(id: String!): DeleteUser!
+  addUser(user: UserInput!): User!
+}
+
+input UserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  lastLogin: String!
+}
