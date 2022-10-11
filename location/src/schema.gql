@@ -25,7 +25,7 @@ directive @override(from: String!) on FIELD_DEFINITION
 """everything related to user location goes here"""
 type Location {
   id: ID!
-  user_uuid: String!
+  user_uuid: ID!
   pincode: String!
   state: String!
   country: String!
@@ -33,21 +33,21 @@ type Location {
 }
 
 type DeleteLocation {
-  id: String!
+  id: Float!
 }
 
 type Query {
-  location(id: String!): Location!
+  location(id: Float!): Location!
   locations: [Location!]!
 }
 
 type Mutation {
-  removeLocation(id: String!): DeleteLocation!
+  removeLocation(id: Float!): DeleteLocation!
   addLocation(user: LocationInput!): Location!
 }
 
 input LocationInput {
-  user_uuid: String!
+  user_uuid: Float!
   pincode: String!
   state: String!
   country: String!

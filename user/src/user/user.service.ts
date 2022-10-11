@@ -20,11 +20,11 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  findOne(id: string): Promise<User> {
+  findOne(id: number): Promise<User> {
     return this.usersRepository.findOneBy({ id });
   }
 
-  async remove(id: string): Promise<DeleteUser> {
+  async remove(id: number): Promise<DeleteUser> {
     await this.usersRepository.delete(id);
     return { id };
   }

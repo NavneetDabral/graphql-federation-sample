@@ -20,11 +20,11 @@ export class LocationService {
     return this.locationRepository.find();
   }
 
-  findOne(id: string): Promise<Location> {
-    return this.locationRepository.findOneBy({ id });
+  findOne(id: number): Promise<Location> {
+    return this.locationRepository.findOneBy({ user_uuid: id });
   }
 
-  async remove(id: string): Promise<DeleteLocation> {
+  async remove(id: number): Promise<DeleteLocation> {
     await this.locationRepository.delete(id);
     return { id };
   }

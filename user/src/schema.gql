@@ -22,26 +22,32 @@ directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUM
 
 directive @override(from: String!) on FIELD_DEFINITION
 
+type Location {
+  user_uuid: ID!
+  user: User!
+}
+
 """everything related to user"""
 type User {
-  id: String!
+  id: ID!
   firstName: String!
   lastName: String!
   email: String!
   lastLogin: String!
+  location: Location!
 }
 
 type DeleteUser {
-  id: String!
+  id: Float!
 }
 
 type Query {
-  user(id: String!): User!
+  user(id: Float!): User!
   users: [User!]!
 }
 
 type Mutation {
-  removeUser(id: String!): DeleteUser!
+  removeUser(id: Float!): DeleteUser!
   addUser(user: UserInput!): User!
 }
 

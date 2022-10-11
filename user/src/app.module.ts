@@ -30,7 +30,6 @@ import { UsersService } from './user/user.service';
       playground: true,
     }),
   ],
-
   providers: [UsersResolver, UsersService],
 })
 export class AppModule {}

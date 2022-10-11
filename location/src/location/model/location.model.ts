@@ -1,12 +1,13 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Directive, Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType({ description: 'everything related to user location goes here' })
+@Directive('@key(fields: "user_uuid")')
 export class Location {
   @Field((type) => ID)
-  id: string;
+  id: number;
 
-  @Field()
-  user_uuid: string;
+  @Field((type) => ID)
+  user_uuid: number;
 
   @Field()
   pincode: string;
