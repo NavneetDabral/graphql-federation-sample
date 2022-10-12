@@ -24,7 +24,6 @@ directive @override(from: String!) on FIELD_DEFINITION
 
 type Location {
   user_uuid: ID!
-  user: User!
 }
 
 """everything related to user"""
